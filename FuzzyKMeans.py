@@ -7,6 +7,8 @@ from sklearn.utils import check_random_state
  READY IMPLEMENTATION FROM INTERNET
  https://gist.github.com/mblondel/1451300
 '''
+
+
 class FuzzyKMeans(BaseEstimator):
 
     def __init__(self, k, m=2, max_iter=100, random_state=0, tol=1e-4):
@@ -39,7 +41,7 @@ class FuzzyKMeans(BaseEstimator):
         self.cluster_centers_ = np.dot(X.T, weights).T
         self.cluster_centers_ /= weights.sum(axis=0)[:, np.newaxis]
 
-    def fit(self, X, y=None):
+    def fit(self, X):
         n_samples, n_features = X.shape
         vdata = np.mean(np.var(X, 0))
 
